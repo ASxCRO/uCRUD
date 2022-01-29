@@ -1,9 +1,170 @@
 ﻿@page "/"
+@using System.Net.Http.Headers
+@using uCRUD.Shared
+@inject HttpClient http
+@inject NavigationManager navMng
 
-<PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<PageTitle>Korisnici</PageTitle>
 
-Welcome to your new app.
+    @if(SearchUser != null)
+{
+    <p>Pretraži </p> 
+    <label>
+        Ime* :
+        <input type="text" id="ime" @bind-value="SearchUser.Ime" />
+    </label>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    <label>
+        Prezime* :
+    <input type="text" id="prezime" @bind-value="SearchUser.Prezime" />
+    </label>
+
+    <label>
+        OIB* :
+            <input type="text" id="mjesto" @bind-value="SearchUser.OIB" />
+    </label>
+
+            <button @onclick="()=>filterUsers()" type="button" class="btn btn-primary">Pretraži</button>
+            <button @onclick="()=>filterReset()" type="button" class="btn btn-primary">Resetiraj</button>
+            @if (isLoading)
+            {
+        <span>Uploading...</span>
+    }
+    else
+    {
+            <p>Učitaj korisnike iz json datoteke -> </p>
+            <InputFile OnChange="@LoadFiles" />
+        
+    }
+
+}
+
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Ime</th>
+      <th scope="col">Prezime</th>
+      <th scope="col">Mjesto</th>
+      <th scope="col">Adresa</th>
+      <th scope="col">OIB</th>
+      <th scope="col">Telefon</th>
+      <th scope="col">Mail</th>
+      <th scope="col">#</th>
+      <th scope="col">#</th>
+    </tr>
+  </thead>
+  <tbody>
+      @if(Users != null && Users.Count() > 0)
+        {
+            @foreach(var user in Users)
+            {
+                <tr>
+                  <td >@user.Id</td>
+                  <td>@user.Ime</td>
+                  <td>@user.Prezime</td>
+                  <td>@user.Mjesto</td>
+                  <td>@user.Adresa</td>
+                  <td>@user.OIB</td>
+                  <td>@user.Telefon</td>
+                  <td>@user.Mail</td>
+                  <td>
+                        <button @onclick="()=>UpdateUser(user.Id)" type="button" class="btn btn-primary">Uredi</button>
+                  </td>
+                  <td>
+                        <button @onclick="()=>RemoveUser(user.Id)" type="button" class="btn btn-danger">Ukloni</button>
+                  </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="10">Nema podataka</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@code {
+    public List<UserViewModel> Users;
+    public UserViewModel SearchUser;
+    private List<IBrowserFile> loadedFiles = new();
+    private bool isLoading = false;
+
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        loadedFiles.Clear();
+        long maxFileSize = 1024 * 1024 * 15;
+
+        using var content = new MultipartFormDataContent();
+
+        var file = e.File;
+
+            var fileContent = 
+                    new StreamContent(file.OpenReadStream(maxFileSize));
+
+            fileContent.Headers.ContentType = 
+                new MediaTypeHeaderValue(file.ContentType);
+
+            content.Add(
+                content: fileContent,
+                name: "\"files\"",
+                fileName: file.Name);
+
+            await http.PostAsync("/api/users/UploadUsers", content);
+            await GetUsers();
+
+        isLoading = false;
+    }
+
+    public async Task GetUsers()
+    {
+        Users = await http.GetFromJsonAsync<List<UserViewModel>>("/api/users/getall");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        SearchUser = new();
+        await GetUsers();
+    }
+
+    private async Task RemoveUser(int id)
+    {
+        await http.DeleteAsync($"/api/users/deleteuser?id={id}");
+        await GetUsers();
+    }
+
+    private async Task UpdateUser(int id)
+    {
+        navMng.NavigateTo($"/user/update/{id}");
+    }
+
+    private async Task filterUsers()
+    {
+        await GetUsers();
+
+        if(!string.IsNullOrEmpty(SearchUser.Ime) && !string.IsNullOrWhiteSpace(SearchUser.Ime))
+        {
+            Users = Users.Where(x => x.Ime.ToLower().Contains(SearchUser.Ime.ToLower())).ToList();
+        }
+        if(!string.IsNullOrEmpty(SearchUser.Prezime) && !string.IsNullOrWhiteSpace(SearchUser.Prezime))
+        {
+            Users = Users.Where(x=>x.Prezime.ToLower().Contains(SearchUser.Prezime.ToLower())).ToList();
+        }
+        if(!string.IsNullOrEmpty(SearchUser.OIB) && !string.IsNullOrWhiteSpace(SearchUser.OIB))
+        {
+            Users = Users.Where(x=>x.OIB.Contains(SearchUser.OIB)).ToList();
+        }
+    }
+
+    private async Task filterReset()
+    {
+        SearchUser = new();
+    }
+}

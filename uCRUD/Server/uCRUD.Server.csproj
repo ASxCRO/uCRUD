@@ -21,5 +21,9 @@
     <ProjectReference Include="..\Shared\uCRUD.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="file_uploads\" />
+  </ItemGroup>
+
 
 </Project>

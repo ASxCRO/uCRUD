@@ -7,6 +7,8 @@ namespace uCRUD.Server.Services
         Task<List<User>> GetAllUsersAsync();
         Task<User> GetUserAsync(int id);
         Task<User> CreateUserAsync(User newUser);
+        Task<bool> CreateRangeOfUsersAsync(List<User> newUser);
+
         Task<bool> UpdateUserAsync(User user);
         Task<bool> DeleteUserAsync(int id);
     }

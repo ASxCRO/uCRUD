@@ -1,0 +1,98 @@
+﻿@page "/user"
+@page "/user/{action}/{id}"
+@using uCRUD.Shared
+@inject HttpClient http
+@inject NavigationManager navmgr
+
+<EditForm Model="@User" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <input type="hidden" id="id" @bind-value="User.Id" />
+
+    <label>
+        Ime* :
+        <InputText id="ime" @bind-Value="User.Ime" />
+    </label>
+
+    <br />
+    <label>
+        Prezime* :
+    <InputText id="prezime" @bind-Value="User.Prezime" />
+    </label>
+
+    <br />
+    <label>
+        Mjesto* :
+            <InputText id="mjesto" @bind-Value="User.Mjesto" />
+    </label>
+
+    <br />
+    <label>
+        Adresa* :
+        <InputText id="adresa" @bind-Value="User.Adresa" />
+    </label>
+
+    <br />
+    <label>
+        OIB* :
+        <InputText id="oib" @bind-Value="User.OIB" />
+    </label>
+
+    <br />
+    <label>
+        Telefon* :
+        <InputText id="telefon" @bind-Value="User.Telefon" />
+    </label>
+
+    <br />
+    <label>
+        Mail* :
+        <InputText id="mail" @bind-Value="User.Mail" />
+    </label>
+    
+    <br />
+
+    <button type="submit">Spremi</button>
+</EditForm>
+
+
+
+
+@code {
+    [Parameter]
+    public string? Action { get; set; }
+
+    [Parameter]
+    public string? Id { get; set; }
+
+
+    public UserViewModel User;
+
+    protected override async Task OnInitializedAsync()
+    {
+        User = new();
+    }
+
+    public async Task HandleValidSubmit()
+    {
+        if(Action == "create")
+        {
+            await http.PostAsJsonAsync($"/api/users/create", User);
+        }
+        else if (Action == "update")
+        {
+            await http.PutAsJsonAsync($"/api/users/update", User);
+        }
+
+        navmgr.NavigateTo("/");
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Action = Action ?? "create";
+        
+        if(Action == "update"&& Id != null)
+            User = await http.GetFromJsonAsync<UserViewModel>($"/api/users/getbyid?id={Id}");
+    }
+}
