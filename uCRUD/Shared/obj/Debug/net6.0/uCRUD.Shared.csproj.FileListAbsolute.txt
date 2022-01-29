@@ -1,0 +1,12 @@
+C:\Users\repiz\source\repos\uCRUD\uCRUD\Shared\bin\Debug\net6.0\uCRUD.Shared.deps.json
+C:\Users\repiz\source\repos\uCRUD\uCRUD\Shared\bin\Debug\net6.0\uCRUD.Shared.dll
+C:\Users\repiz\source\repos\uCRUD\uCRUD\Shared\bin\Debug\net6.0\ref\uCRUD.Shared.dll
+C:\Users\repiz\source\repos\uCRUD\uCRUD\Shared\bin\Debug\net6.0\uCRUD.Shared.pdb
+C:\Users\repiz\source\repos\uCRUD\uCRUD\Shared\obj\Debug\net6.0\uCRUD.Shared.csproj.AssemblyReference.cache
+C:\Users\repiz\source\repos\uCRUD\uCRUD\Shared\obj\Debug\net6.0\uCRUD.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\repiz\source\repos\uCRUD\uCRUD\Shared\obj\Debug\net6.0\uCRUD.Shared.AssemblyInfoInputs.cache
+C:\Users\repiz\source\repos\uCRUD\uCRUD\Shared\obj\Debug\net6.0\uCRUD.Shared.AssemblyInfo.cs
+C:\Users\repiz\source\repos\uCRUD\uCRUD\Shared\obj\Debug\net6.0\uCRUD.Shared.csproj.CoreCompileInputs.cache
+C:\Users\repiz\source\repos\uCRUD\uCRUD\Shared\obj\Debug\net6.0\uCRUD.Shared.dll
+C:\Users\repiz\source\repos\uCRUD\uCRUD\Shared\obj\Debug\net6.0\ref\uCRUD.Shared.dll
+C:\Users\repiz\source\repos\uCRUD\uCRUD\Shared\obj\Debug\net6.0\uCRUD.Shared.pdb
