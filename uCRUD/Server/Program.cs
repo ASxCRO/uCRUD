@@ -1,9 +1,16 @@
+using uCRUD.Server.Data;
+using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
+using uCRUD.Server.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
+// Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<UserDbContext>(opts => opts.UseSqlServer(builder.Configuration["ConnectionStrings:uCRUD"]));
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
