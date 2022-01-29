@@ -4,7 +4,6 @@ services:
   ucrud.server:
     image: ucrudserver:dev
     build:
-      target: base
       labels:
         com.microsoft.created-by: "visual-studio"
         com.microsoft.visual-studio.project-name: "uCRUD.Server"

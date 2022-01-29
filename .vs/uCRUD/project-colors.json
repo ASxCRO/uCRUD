@@ -20,7 +20,12 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "558eaf82-94f8-4f35-9cd5-996681a2b361": {
+      "ProjectGuid": "558eaf82-94f8-4f35-9cd5-996681a2b361",
+      "DisplayName": "docker-compose",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }

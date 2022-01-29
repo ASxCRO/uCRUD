@@ -1,0 +1,29 @@
+[
+    {
+        "Ime": "Antonio",
+        "Prezime": "Supan",
+        "Mjesto": "Požega",
+        "Adresa": "Golobrdci 80",
+        "OIB": "81699568148",
+        "Telefon": "0994114013",
+        "Mail": "asd@asd.rh"
+    },
+    {
+        "Ime": "Antonio",
+        "Prezime": "Supan",
+        "Mjesto": "Požega",
+        "Adresa": "Golobrdci 80",
+        "Oib": "81699568148",
+        "Telefon": "0994114013",
+        "Mail": "asd@asd.rh"
+    },
+    {
+        "Ime": "Miah",
+        "Prezime": "Supan",
+        "Mjesto": "Golobredci",
+        "Adresa": "213",
+        "oib": "81699568148",
+        "Telefon": "0994114013",
+        "Mail": "antonio.suups@gmail.com"
+    }
+]

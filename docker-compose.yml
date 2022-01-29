@@ -2,8 +2,10 @@ version: '3.4'
 
 services:
   ucrud.server:
-    container_name: ucrud
+    container_name: ucrud.server
     image: ${DOCKER_REGISTRY-}ucrudserver
+    ports:
+      - "5555:80"
     build:
       context: .
       dockerfile: uCRUD/Server/Dockerfile

@@ -8,11 +8,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<UserDbContext>(opts => opts.UseSqlServer(builder.Configuration["ConnectionStrings:uCRUD-docker"]));
+builder.Services.AddDbContext<UserDbContext>(opts => opts.UseNpgsql(@"Host=ec2-3-216-113-109.compute-1.amazonaws.com:5432;Username=cepjieogclvida;Password=04aab15baa6d1e4c484ca0d4fe70c43acbb7e8b4b849e655c4156014aedd2981;Database=d2etnor3841onj"));
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IUserService, UserService>();
 
+
 var app = builder.Build();
+
+string? port = Environment.GetEnvironmentVariable("PORT");
+if (!string.IsNullOrWhiteSpace(port)) 
+{ 
+    app.Urls.Add("http://*:" + port); 
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

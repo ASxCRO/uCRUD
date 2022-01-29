@@ -26,11 +26,11 @@ C:\Users\repiz\source\repos\uCRUD\bin\Debug\uCRUD.Server.dll
 C:\Users\repiz\source\repos\uCRUD\bin\Debug\Microsoft.EntityFrameworkCore.dll
 C:\Users\repiz\source\repos\uCRUD\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\repiz\source\repos\uCRUD\bin\Debug\Microsoft.AspNetCore.Components.WebAssembly.Server.dll
-C:\Users\repiz\source\repos\uCRUD\bin\Debug\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\repiz\source\repos\uCRUD\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\repiz\source\repos\uCRUD\bin\Debug\Microsoft.Data.SqlClient.dll
-C:\Users\repiz\source\repos\uCRUD\bin\Debug\Microsoft.Identity.Client.dll
 C:\Users\repiz\source\repos\uCRUD\bin\Debug\uCRUD.Server.pdb
 C:\Users\repiz\source\repos\uCRUD\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 C:\Users\repiz\source\repos\uCRUD\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 C:\Users\repiz\source\repos\uCRUD\obj\Debug\docker-compose.dcproj.CopyComplete
+C:\Users\repiz\source\repos\uCRUD\bin\Debug\file_uploads\rzkzvfk4.qhv.json
+C:\Users\repiz\source\repos\uCRUD\bin\Debug\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\repiz\source\repos\uCRUD\bin\Debug\Npgsql.dll
