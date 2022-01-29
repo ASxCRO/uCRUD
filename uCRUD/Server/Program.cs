@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<UserDbContext>(opts => opts.UseSqlServer(builder.Configuration["ConnectionStrings:uCRUD"]));
+builder.Services.AddDbContext<UserDbContext>(opts => opts.UseSqlServer(builder.Configuration["ConnectionStrings:uCRUD-docker"]));
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IUserService, UserService>();
 

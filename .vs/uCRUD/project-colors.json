@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ff537982-a18e-4466-8460-9ec6a9a80d44": {
+      "ProjectGuid": "ff537982-a18e-4466-8460-9ec6a9a80d44",
+      "DisplayName": "uCRUD.Server",
+      "ColorIndex": 0
+    },
+    "cc919997-cafd-402c-9efa-c14019cb670f": {
+      "ProjectGuid": "cc919997-cafd-402c-9efa-c14019cb670f",
+      "DisplayName": "uCRUD.Client",
+      "ColorIndex": 1
+    },
+    "ea8e55c0-a2fc-4575-bda1-35744c5beb53": {
+      "ProjectGuid": "ea8e55c0-a2fc-4575-bda1-35744c5beb53",
+      "DisplayName": "uCRUD.Shared",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}
